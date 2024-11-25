@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import Layout from "../Shared/Layout.vue";
+
+defineOptions({
+    layout: Layout
+})
 </script>
 
 
 <template>
-    <Layout>
-        <h1>About Us</h1>
-    </Layout>
+
+    <h1>About Us</h1>
+
 </template>
 

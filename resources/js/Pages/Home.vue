@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import Layout from "../Shared/Layout.vue";
 
+
 defineProps({
     name: String,
     frameworks: Array,
     date: String
+})
+
+defineOptions({
+    layout: Layout
 })
 </script>
 
 
 <template>
 
-    <Layout>
-        <h1>Home</h1>
-    </Layout>
+    <h1>Home</h1>
 
 </template>
 

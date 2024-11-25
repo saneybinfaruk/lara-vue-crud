@@ -4,5 +4,7 @@ import Nav from "./Nav.vue";
 <template>
     <Nav/>
 
-    <slot/>
+    <div class="max-w-3xl mx-auto my-2">
+        <slot/>
+    </div>
 </template>
