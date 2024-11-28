@@ -1,30 +1,32 @@
-<script setup lang="ts">
-import Layout from "../Shared/Layout.vue";
+<script setup>
 import {Link} from "@inertiajs/vue3";
-import Pagination from "../Shared/Pagination.vue";
+import Pagination from "./Pagination.vue";
+import {ref, watch} from "vue";
+import {router} from '@inertiajs/vue3'
 
 
-defineProps({
-    users: Object
+let props = defineProps({
+    users: Object,
+    filters: Object,
 })
 
-defineOptions({
-    layout: Layout
+let searchValue = ref(props.filters.search);
+
+
+watch(searchValue, (value) => {
+    router.get('/users', {search: value}, {preserveState: true})
 })
 
 
 </script>
-
-
 <template>
-
-    <Head title="Home"/>
-
-
     <div>
-        <div class="py-8 space-y-1">
+        <div class="py-8">
             <h3 class="text-xl font-semibold">Users</h3>
             <p>A list of all the users in your account including their name, title, email and role.</p>
+
+            <input type="text" v-model="searchValue" placeholder="search user.."
+                   class="px-2 py-2.5 bg-gray-100 rounded-md w-1/2 block mt-6">
         </div>
 
 
@@ -72,7 +74,4 @@ defineOptions({
         </div>
 
     </div>
-
-
 </template>
-
