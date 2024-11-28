@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Layout from "../Shared/Layout.vue";
 import {Link} from "@inertiajs/vue3";
+import Pagination from "../Shared/Pagination.vue";
 
 
 defineProps({
@@ -67,16 +68,7 @@ defineOptions({
         </div>
 
         <div class="py-6">
-            <Component
-                :is="link.url ? Link : 'span' "
-                v-for="link in users.links"
-                :key="link.label"
-                :href="link.url"
-                v-html="link.label"
-                class="px-1"
-                :class="link.active ? 'font-bold text-mg':'' || link.url? '':'text-gray-400' "
-
-            />
+            <Pagination :links="users.links"/>
         </div>
 
     </div>
